@@ -1,0 +1,49 @@
+{
+  "name": "hls-player",
+  "version": "0.0.1",
+  "author": {
+    "name": "will"
+  },
+  "license": "unlicensed",
+  "private": "true",
+  "scripts": {
+    "setup": "yarn install",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "next-lint": "next lint",
+    "lint": "eslint ./src/pages/* --fix"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "next": "^11.0.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-hls-player": "^3.0.7",
+    "react-is": "^17.0.2",
+    "react-lottie": "^1.2.3",
+    "react-player": "^2.9.0",
+    "screenfull": "^5.1.0",
+    "styled-components": "^5.0.0",
+    "webpack": "^5.47.1"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "@types/node": "^16.4.10",
+    "@types/react": "^17.0.15",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-lottie": "^1.2.6",
+    "@types/styled-components": "^5.1.11",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "babel-plugin-styled-components": "^1.13.2",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-next": "^11.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "typescript": "^4.3.5"
+  }
+}

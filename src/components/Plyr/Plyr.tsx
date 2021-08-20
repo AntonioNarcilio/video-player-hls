@@ -11,7 +11,7 @@ type PlyrPlayerTypes = {
 }
 
 const PlyrPlayer = ({ url }:PlyrPlayerTypes) => {
-  if (process.browser) {
+  useEffect(() => {
     const checkReadyState = setInterval(() => {
       // console.info(document.readyState);
       if (document.readyState === 'complete') {
@@ -72,7 +72,7 @@ const PlyrPlayer = ({ url }:PlyrPlayerTypes) => {
         }
       }
     }, 100);
-  }
+  }, []);
 
   useEffect(() => {
     const win = window as any;
@@ -88,7 +88,7 @@ const PlyrPlayer = ({ url }:PlyrPlayerTypes) => {
           speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] },
           controls: [
             'progress', // The progress bar and scrubber for playback and buffering
-            // 'play-large', // The large play button in the center
+            'play-large', // The large play button in the center
             // 'restart', // Restart playback
             'rewind', // Rewind by the seek time (default 10 seconds)
             'play', // Play/pause playback

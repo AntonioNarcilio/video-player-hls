@@ -26,13 +26,13 @@
     "baseUrl": ".",
     "paths": {
       "*": [
-        "node_modules/*"
-      ],
-      "@/types/*": [
-        "./src/@types/*"
+        "node_modules/*",
+        "src/types/*"
       ],
       "@/components/*": ["./src/components/*"],
-      "@/animations/*": ["./src/assets/animations/*"],
+      "@/styles/*" : ["./src/styles/*"],
+      "@/types/*": ["./src/@types/*"],
+      "@/animation/*": ["./src/assets/animations/*"],
     }
   },
   "include": [

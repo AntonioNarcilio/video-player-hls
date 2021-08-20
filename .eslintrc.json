@@ -20,9 +20,11 @@
 				"extensions": [".ts", ".tsx"]
 			}
 		],
+    "import/no-unresolved": "off",
 		"react/react-in-jsx-scope": "off",
 		"global-require": "off",
 		"import/prefer-default-export": "off",
+    "prefer-const": "off",
 		"no-unused-expressions": [
 			"error",
 			{

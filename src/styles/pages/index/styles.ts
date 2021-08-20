@@ -7,9 +7,11 @@ export const Container = styled.div`
   justify-content: center;
 
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
 
   gap: 2rem;
+
+  overflow: hidden;
 
 
   h1 {
@@ -93,25 +95,5 @@ export const Container = styled.div`
       border: 1px solid ${(props) => props.theme.colors.text};
     }
   }
-
-`;
-
-export const VideoWrapper = styled.main`
-  width: 640px;
-  max-height: 360px;
-
-  /* position: fixed; */
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
-
-  box-shadow: 0px 30px 20px -10px rgb(0 0 0 / 47%);
-
-  video#player {
-    min-width: 640px;
-    min-height: 360px;
-  }
-
 
 `;

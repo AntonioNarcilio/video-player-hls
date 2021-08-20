@@ -30,9 +30,9 @@
       ],
       "@/types/*": [
         "./src/@types/*"
-      ]
-      //       "@/animations/*": ["./src/assets/animations/*"],
-      //       "@/components/*": ["./src/components/*"],
+      ],
+      "@/components/*": ["./src/components/*"],
+      "@/animations/*": ["./src/assets/animations/*"],
     }
   },
   "include": [

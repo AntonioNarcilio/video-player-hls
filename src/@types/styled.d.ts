@@ -11,7 +11,6 @@ declare module 'styled-components' {
       secondary: string;
       text: string;
       textTitle: string;
-      textHighlight: string;
       red: string;
       redDark: string;
       redShadow: string;

@@ -3,14 +3,14 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 
-import dracula from '../styles/themes/dracula';
+import dark from '../styles/themes/dark';
 // import light from '../styles/themes/light';
 import GlobalStyles from '../styles/global';
 
 export default function App({ Component, pageProps }:AppProps) {
   return (
     <>
-      <ThemeProvider theme={dracula}>
+      <ThemeProvider theme={dark}>
         <Head>
           <title>Template</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />

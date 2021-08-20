@@ -12,7 +12,7 @@ export default createGlobalStyle`
 }
 
 body {
-  background-color: ${(props) => props.theme.colors.red};
+  background-color: ${(props) => props.theme.colors.secondary};
   color: ${(props) => props.theme.colors.text};
 }
 

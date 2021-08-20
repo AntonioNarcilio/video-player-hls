@@ -15,11 +15,16 @@
     "lint": "eslint ./src/pages/* --fix"
   },
   "dependencies": {
+    "dashjs": "^4.0.0-npm",
     "dotenv": "^10.0.0",
+    "hls.js": "^1.0.9",
     "next": "^11.0.0",
+    "plyr": "^3.6.8",
+    "plyr-react": "^3.0.8",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-hls-player": "^3.0.7",
+    "react-icons": "^4.2.0",
     "react-is": "^17.0.2",
     "react-lottie": "^1.2.3",
     "react-player": "^2.9.0",

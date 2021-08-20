@@ -29,7 +29,7 @@ const PlyrPlayer = dynamic(() => import('@/components/Plyr'),
         justifyContent: 'center',
       }}
       >
-        <ReactLoading width={30} type="bars" color="#fff" />
+        <ReactLoading width={40} type="bars" color="#fff" />
       </div>
     ),
   });

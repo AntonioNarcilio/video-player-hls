@@ -10,7 +10,7 @@ import HotToast from '@/components/HotToast';
 
 import Container from '@/styles/pages/error';
 
-export default function NotFound() {
+const Custom400 = () => {
   const router = useRouter();
   const { colors } = useContext(ThemeContext);
   // Redirecionando para a pagina home
@@ -64,4 +64,6 @@ export default function NotFound() {
       <HotToast />
     </>
   );
-}
+};
+
+export default Custom400;

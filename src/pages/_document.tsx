@@ -4,10 +4,10 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-const TITLE_PAGE = 'Template';
-const DESCRIPTION = 'Texto descrevendo sobre a pagina';
+const TITLE_PAGE = 'HLS video player';
+const DESCRIPTION = 'Watch streaming videos in M3U8 format super easy';
 const URL_SITE = 'https://';
-const URI_IMAGE = 'https://';
+const URI_IMAGE = '/assets/preview.png';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -49,7 +49,7 @@ export default class MyDocument extends Document {
           <meta name="author" content="Antonio Narcilio" />
 
           <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-          <meta property="og:locale" content="pt_BR" />
+          <meta property="og:locale" content="en_US" />
           <meta name="title" content={TITLE_PAGE} key="title" />
           <meta name="description" content={DESCRIPTION} key="desc" />
 

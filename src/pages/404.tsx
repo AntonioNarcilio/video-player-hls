@@ -1,36 +1,67 @@
-import Lottie from 'react-lottie';
-import Head from 'next/head';
+import { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import loadingAnimation from '../animation/404-error.json';
-import Container from '../styles/pages/error/styles';
+import toast from 'react-hot-toast';
+import { ThemeContext } from 'styled-components';
+
+import Head from '@/components/Head';
+import LottieAnimation from '@/components/LottieAnimation';
+import loadingAnimation from '@/animation/404-error.json';
+import HotToast from '@/components/HotToast';
+
+import Container from '@/styles/pages/error';
 
 export default function NotFound() {
-  const history = useRouter();
+  const router = useRouter();
+  const { colors } = useContext(ThemeContext);
   // Redirecionando para a pagina home
   useEffect(() => {
+    toast.error('Page not found', {
+      position: 'top-center',
+      style: {
+        borderRadius: '6px',
+        padding: '16px',
+        fontWeight: 500,
+        fontSize: '14px',
+        color: `${colors.white}`,
+        boxShadow: '0px 7px 8px 2px rgb(0 0 0 / 41%)',
+      },
+    });
+
+    setTimeout(() => {
+      toast('You will be redirected to the home page', {
+        icon: '⌛',
+        position: 'top-center',
+        style: {
+          borderRadius: '6px',
+          padding: '16px',
+          fontWeight: 500,
+          fontSize: '14px',
+          color: `${colors.white}`,
+          boxShadow: '0px 7px 8px 2px rgb(0 0 0 / 41%)',
+        },
+      });
+    }, 1000);
+
     setTimeout(() => {
       // replace: não adiciona uma nova entrada url (nao add a rota no caminho)
-      history.replace('/');
-    }, 5000);
+      router.replace('/');
+    }, 6000);
   }, []);
 
   return (
     <>
-      <Head>
-        <title>Page not found</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <Head title="Not found" />
+
       <Container>
-        <Lottie
-          options={{
-            loop: true,
-            autoplay: true,
-            animationData: loadingAnimation,
-          }}
-          width={550}
+        <LottieAnimation
+          ID="404"
+          Width={600}
+          Height={600}
+          LoadingAnimation={loadingAnimation}
         />
       </Container>
+
+      <HotToast />
     </>
   );
 }

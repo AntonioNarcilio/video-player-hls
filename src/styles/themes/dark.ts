@@ -1,11 +1,10 @@
 export default {
-  title: 'dracula',
+  title: 'dark',
 
   colors: {
     primary: '#1d1e26',
-    secondary: '#282a36',
+    secondary: '#2A2D96',
     text: '#f8f8f2',
-    textHighlight: '#50fa7b',
     textTitle: '#f8f8f2',
     red: '#ff5555',
     redDark: '#e64c4c',

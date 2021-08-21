@@ -7,7 +7,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     if (slug === 'preview') {
       res.json(
         [{
-          // preview: '/assets/preview.png',
+          preview: '/assets/preview.png',
         }],
       );
       return;

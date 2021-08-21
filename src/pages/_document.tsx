@@ -5,9 +5,9 @@ import Document, {
 import { ServerStyleSheet } from 'styled-components';
 
 const TITLE_PAGE = 'HLS video player';
-const DESCRIPTION = 'Watch streaming videos in M3U8 format super easy';
-const URL_SITE = 'https://';
-const URI_IMAGE = '/assets/preview.png';
+const DESCRIPTION = 'Watch streaming videos in M3U8 format super easy!';
+const URL_SITE = 'https://video-player-hls.vercel.app';
+const URI_IMAGE = 'https://video-player-hls.vercel.app/assets/preview.png';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

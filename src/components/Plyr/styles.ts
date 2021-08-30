@@ -90,7 +90,7 @@ export const VideoWrapper = styled.main`
         background: ${(props) => props.theme.colors.white};
         border-radius: 4px;
 
-        button[data-plyr="settings"], button.plyr__control--back, button[data-plyr="speed"] {
+        button[data-plyr="settings"], button.plyr__control--back, button[data-plyr="speed"], [data-plyr="capture"] {
           &:hover {
             color: ${(props) => props.theme.colors.pink};
           }

@@ -28,7 +28,6 @@ export const VideoWrapper = styled.main`
     --plyr-video-controls-background: transparent;
     --plyr-video-control-background-hover: ${(props) => props.theme.colors.secondary};
 
-
     /* BUTTON LARGE PALY */
     .plyr__control--overlaid {
       width: 110px;

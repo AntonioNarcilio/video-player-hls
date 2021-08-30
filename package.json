@@ -1,8 +1,8 @@
 {
   "name": "hls-player",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": {
-    "name": "will"
+    "name": "Antonio Narcilio"
   },
   "license": "unlicensed",
   "private": "true",
@@ -12,7 +12,21 @@
     "build": "next build",
     "start": "next start",
     "next-lint": "next lint",
-    "lint": "eslint ./src/pages/* --fix"
+    "lint": "eslint ./",
+    "lint:fix": "yarn lint --fix",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    ".tsx": [
+      "yarn lint:fix"
+    ],
+    ".ts": [
+      "yarn lint:fix"
+    ],
+    ".js": [
+      "yarn lint:fix"
+    ]
   },
   "dependencies": {
     "dashjs": "^4.0.0-npm",
@@ -21,17 +35,10 @@
     "lottie-web": "^5.7.13",
     "next": "^11.0.0",
     "plyr": "^3.6.8",
-    "plyr-react": "^3.0.8",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "react-hls-player": "^3.0.7",
     "react-hot-toast": "^2.1.0",
-    "react-icons": "^4.2.0",
-    "react-is": "^17.0.2",
     "react-loading": "^2.0.3",
-    "react-lottie": "^1.2.3",
-    "react-player": "^2.9.0",
-    "screenfull": "^5.1.0",
     "styled-components": "^5.0.0",
     "webpack": "^5.47.1"
   },
@@ -40,7 +47,6 @@
     "@types/node": "^16.4.10",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
-    "@types/react-lottie": "^1.2.6",
     "@types/styled-components": "^5.1.11",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.29.0",
@@ -52,6 +58,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "lint-staged": "^11.1.2",
     "typescript": "^4.3.5"
   }
 }

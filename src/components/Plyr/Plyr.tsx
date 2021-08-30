@@ -143,7 +143,7 @@ const PlyrPlayer = ({ url }:PlyrPlayerTypes) => {
         {
           // captions: { active: true, update: true },
           autoplay: false,
-          hideControls: false,
+          hideControls: true,
           speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] },
           controls: [
             'progress', // The progress bar and scrubber for playback and buffering

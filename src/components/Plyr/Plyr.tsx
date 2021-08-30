@@ -12,6 +12,58 @@ type PlyrPlayerTypes = {
 
 const PlyrPlayer = ({ url }:PlyrPlayerTypes) => {
   useEffect(() => {
+    (function plyrPluginCapture(document) {
+      function saveScreenShot(data: string, filename:string) {
+        const saveLink = document.createElement('a');
+        saveLink.href = data;
+        saveLink.download = filename;
+        const event = document.createEvent('MouseEvents');
+        event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        saveLink.dispatchEvent(event);
+      }
+
+      function capture(player:any, label:string) {
+        const width = player.media.videoWidth;
+        const height = player.media.videoHeight;
+        const canvas = Object.assign(document.createElement('canvas'), { width, height });
+        const canvasCtx = canvas.getContext('2d');
+
+        const img = new Image();
+        img.setAttribute('crossOrigin', 'anonymous');
+        // @ts-ignore
+        img.onload = (function onload() {
+          canvasCtx?.drawImage(player.media, 0, 0, width, height);
+          img.src = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+
+          const screenShotImg = img.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+          saveScreenShot(screenShotImg, `${label}.png`);
+        }());
+      }
+
+      document.addEventListener('ready', (event) => {
+        // @ts-ignore
+        const curPlayer = event.detail.plyr;
+        const { config } = curPlayer;
+        if (Array.isArray(config.controls) && config.controls.includes('capture')) {
+          const captureLabel = config.i18n.capture || 'Capture';
+
+          const menu = document.querySelector('.plyr__controls__item.plyr__menu');
+          const btn = `
+            <button button class="plyr__control plyr__control--forward" type="button" data-plyr="capture">
+              Screenshot
+              <span class="plyr__sr-only">${captureLabel}</span>
+            </button>
+          `;
+          menu?.insertAdjacentHTML('beforebegin', btn);
+
+          const btnElement = document.querySelector('button[data-plyr="capture"]');
+          btnElement?.addEventListener('click', () => {
+            capture(curPlayer, captureLabel);
+          });
+        }
+      });
+    }(document));
+
     const checkReadyState = setInterval(() => {
       // console.info(document.readyState);
       if (document.readyState === 'complete') {
@@ -31,6 +83,12 @@ const PlyrPlayer = ({ url }:PlyrPlayerTypes) => {
         const plyrPip = document.querySelector('[data-plyr="pip"]');
         const plyrMenu = document.querySelector('.plyr__menu');
         const plyrFullscreen = document.querySelector('[data-plyr="fullscreen"]');
+
+        const plyrCapture = document.querySelector('[data-plyr="capture"]');
+        const plyrMenuContainer = document.querySelector('.plyr__menu .plyr__menu__container [role="menu"]');
+        if (plyrMenuContainer && plyrCapture) {
+          plyrMenuContainer.appendChild(plyrCapture);
+        }
 
         const divTopRow = document.createElement('div');
         const divBottomRow = document.createElement('div');
@@ -57,6 +115,7 @@ const PlyrPlayer = ({ url }:PlyrPlayerTypes) => {
           divBottomRow.appendChild(divContentOne);
         }
         if (plyrVolume && plyrPip && plyrMenu && plyrFullscreen) {
+          // divContentTwo.appendChild(plyrCapture);
           divContentTwo.appendChild(plyrVolume);
           divContentTwo.appendChild(plyrPip);
           divContentTwo.appendChild(plyrMenu);
@@ -95,6 +154,7 @@ const PlyrPlayer = ({ url }:PlyrPlayerTypes) => {
             'fast-forward', // Fast forward by the seek time (default 10 seconds)
             'current-time', // The current time of playback
             'duration', // The full duration of the media
+            'capture',
 
             'mute', // Toggle mute
             'volume', // Volume control

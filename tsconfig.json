@@ -29,10 +29,11 @@
         "node_modules/*",
         "src/types/*"
       ],
-      "@/components/*": ["./src/components/*"],
-      "@/styles/*" : ["./src/styles/*"],
-      "@/types/*": ["./src/@types/*"],
-      "@/animation/*": ["./src/assets/animations/*"],
+      "@/components/*": ["src/components/*"],
+      "@/styles/*" : ["src/styles/*"],
+      "@/types/*": ["src/@types/*"],
+      "@/animation/*": ["src/assets/animations/*"],
+      "@/seo": ["next-seo.config.ts"],
     }
   },
   "include": [

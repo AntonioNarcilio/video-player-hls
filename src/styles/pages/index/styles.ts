@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
 
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   gap: 2rem;
 
@@ -52,6 +52,13 @@ export const Container = styled.div`
         opacity: 0;
         /* z-index: -1; */
       }
+
+      @media (max-width: 320px) {
+        width: 210px;
+      }
+      @media (max-width: 280px) {
+        width: 180px;
+      }
     }
 
     input[type=text] {
@@ -74,6 +81,13 @@ export const Container = styled.div`
       &::placeholder {
         color: ${(props) => props.theme.colors.text};
       }
+
+      @media (max-width: 320px) {
+        width: 210px;
+      }
+      @media (max-width: 280px) {
+        width: 180px;
+      }
     }
 
     hr {
@@ -94,6 +108,12 @@ export const Container = styled.div`
       color: ${(props) => props.theme.colors.text};
       border: 1px solid ${(props) => props.theme.colors.text};
     }
+
+
+    @media (max-height: 568px) and (orientation: landscape)  {
+      margin-bottom: 1rem;
+    }
+
   }
 
 `;

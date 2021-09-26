@@ -8,14 +8,12 @@ import {
   useState,
 } from 'react';
 import dynamic from 'next/dynamic';
+import { NextSeo } from 'next-seo';
 import toast from 'react-hot-toast';
 import ReactLoading from 'react-loading';
 import { ThemeContext } from 'styled-components';
 
-import Head from '@/components/Head';
-
 import { Container } from '../styles/pages/index/styles';
-import 'plyr-react/dist/plyr.css';
 
 const HotToast = dynamic(() => (import('@/components/HotToast')));
 const PlyrPlayer = dynamic(() => import('@/components/Plyr'),
@@ -57,7 +55,16 @@ export default function Home() {
 
   return (
     <>
-      <Head title="HLS Player" />
+      <NextSeo
+        title="HLS Player"
+        additionalLinkTags={[
+          {
+            rel: 'icon',
+            type: 'image/svg+xml',
+            href: '/favicon.svg',
+          },
+        ]}
+      />
 
       <Container>
 

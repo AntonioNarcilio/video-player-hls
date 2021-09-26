@@ -1,9 +1,9 @@
 import { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import toast from 'react-hot-toast';
+import { NextSeo } from 'next-seo';
 import { ThemeContext } from 'styled-components';
 
-import Head from '@/components/Head';
 import LottieAnimation from '@/components/LottieAnimation';
 import loadingAnimation from '@/animation/500-error.json';
 import HotToast from '@/components/HotToast';
@@ -50,8 +50,28 @@ const Custom500 = () => {
 
   return (
     <>
-      <Head title="Not found" />
 
+      <NextSeo
+        title="Internal Server Error"
+        noindex
+        nofollow
+        additionalMetaTags={[
+          {
+            name: 'viewport',
+            content: 'initial-scale=1.0, width=device-width',
+          }, {
+            httpEquiv: 'refresh',
+            content: '5; url=/',
+          },
+        ]}
+        additionalLinkTags={[
+          {
+            rel: 'icon',
+            type: 'image/svg+xml',
+            href: '/error.svg',
+          },
+        ]}
+      />
       <Container>
         <LottieAnimation
           ID="500"

@@ -14,7 +14,33 @@ export const VideoWrapper = styled.main`
   video#player {
     min-width: 640px;
     min-height: 360px;
+
+    /* RESPONSIVE */
+
+    @media (max-width: 540px) {
+      min-width: 495px;
+      min-height: 277px;
+    }
+    @media (max-width: 415px) {
+      min-width: 339px;
+      min-height: 191px;
+    }
+    @media (max-width: 320px) {
+      min-width: 297px;
+      min-height: 167px;
+    }
+    @media (max-width: 280px) {
+      min-width: 261px;
+      min-height: 145px;
+    }
+
+
+    @media (max-height: 568px) and (orientation: landscape)  {
+      min-width: 542px;
+      min-height: 305px;
+    }
   }
+
 
 
   /* PLYR CSS */
@@ -27,6 +53,12 @@ export const VideoWrapper = styled.main`
     --plyr-video-control-color-hover:  ${(props) => props.theme.colors.white};
     --plyr-video-controls-background: transparent;
     --plyr-video-control-background-hover: ${(props) => props.theme.colors.secondary};
+
+    --plyr-control-icon-size: 18px;
+
+    .plyr__video-wrapper .plyr__poster {
+      background-size: cover;
+    }
 
     /* BUTTON LARGE PALY */
     .plyr__control--overlaid {
@@ -45,12 +77,70 @@ export const VideoWrapper = styled.main`
       }
     }
 
+    /* RESPONSIVE */
+
+    @media (max-width: 540px) {
+      --plyr-control-icon-size: 14px;
+
+      .plyr__control--overlaid {
+        width: 90px;
+        height: 90px;
+      }
+
+      .plyr__time {
+        font-size: 12px;
+      }
+    }
+    @media (max-width: 415px) {
+      --plyr-control-icon-size: 12px;
+
+      .plyr__control--overlaid {
+        width: 87px;
+        height: 87px;
+      }
+
+      .plyr__time {
+        font-size: 10px;
+      }
+    }
+    @media (max-width: 320px) {
+      --plyr-control-icon-size: 10px;
+
+      .plyr__control--overlaid {
+        width: 67px;
+        height: 67px;
+
+        svg {
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+    @media (max-width: 280px) {
+      --plyr-control-icon-size: 7px;
+
+      .plyr__control--overlaid {
+        width: 67px;
+        height: 67px;
+
+        svg {
+          width: 25px;
+          height: 25px;
+        }
+      }
+
+      .plyr__time {
+        font-size: 8px;
+      }
+    }
   }
 
   .plyr__controls {
     display: flex;
     flex-direction: column;
     opacity: 0; // removed whit js => opacity: 1;
+
+    width: 100%;
 
     /* PROGRESS BAR */
     .plyr__progress input[type="range"] {
@@ -89,7 +179,10 @@ export const VideoWrapper = styled.main`
         background: ${(props) => props.theme.colors.white};
         border-radius: 4px;
 
-        button[data-plyr="settings"], button.plyr__control--back, button[data-plyr="speed"], [data-plyr="capture"] {
+        button[data-plyr="settings"],
+        button.plyr__control--back,
+        button[data-plyr="speed"],
+        [data-plyr="capture"] {
           &:hover {
             color: ${(props) => props.theme.colors.pink};
           }
@@ -122,11 +215,19 @@ export const VideoWrapper = styled.main`
       }
       margin-left: -7px;
       margin-right: 7px;
+
+      @media(max-width: 411px) {
+        margin-right: 0px;
+      }
     }
 
     /* VOLUME */
     .plyr__volume {
       width: 100%;
+
+      @media (max-width: 415px) {
+        min-width: 60px;
+      }
 
       > button {
         opacity: .8;
@@ -157,8 +258,26 @@ export const VideoWrapper = styled.main`
         &:hover {
           opacity: 1;
         }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 415px) {
+          width: 30px;
+        }
+        @media (max-width: 320px) {
+          &::-webkit-slider-runnable-track {
+            height: 8px;
+          }
+        }
       }
     }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 280px) {
+      --plyr-control-spacing: 6px;
+    }
+
   }
 
   div.top_row {
@@ -185,8 +304,37 @@ export const VideoWrapper = styled.main`
         justify-content: flex-end;
       }
     }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 415px) {
+      .content {
+         &:first-child {
+          gap: 0rem;
+        }
+      }
+    }
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 540px) {
+    width: 495px;
+  }
+  @media (max-width: 415px) {
+    width: 339px;
+  }
+  @media (max-width: 320px) {
+    width: 297px;
+  }
+  @media (max-width: 280px) {
+    width: 261px;
   }
 
 
+  @media (max-height: 568px) and (orientation: landscape)  {
+    width: 542px;
+    margin-top: 1rem;
+  }
 
 `;

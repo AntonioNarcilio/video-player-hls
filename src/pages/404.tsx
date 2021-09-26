@@ -1,17 +1,15 @@
 import { useContext, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import toast from 'react-hot-toast';
+import { NextSeo } from 'next-seo';
 import { ThemeContext } from 'styled-components';
 
-import Head from '@/components/Head';
 import LottieAnimation from '@/components/LottieAnimation';
 import loadingAnimation from '@/animation/404-error.json';
 import HotToast from '@/components/HotToast';
 
 import Container from '@/styles/pages/error';
 
-const Custom400 = () => {
-  const router = useRouter();
+const Custom404 = () => {
   const { colors } = useContext(ThemeContext);
   // Redirecionando para a pagina home
   useEffect(() => {
@@ -42,15 +40,32 @@ const Custom400 = () => {
       });
     }, 1000);
 
-    setTimeout(() => {
-      // replace: não adiciona uma nova entrada url (nao add a rota no caminho)
-      router.replace('/');
-    }, 6000);
+    // setTimeout(() => {
+    //   // replace: não adiciona uma nova entrada url (nao add a rota no caminho)
+    //   router.replace('/');
+    // }, 6000);
   }, []);
 
   return (
     <>
-      <Head title="Not found" />
+      <NextSeo
+        title="Not found"
+        noindex
+        nofollow
+        additionalMetaTags={[
+          {
+            httpEquiv: 'refresh',
+            content: '5; url=/',
+          },
+        ]}
+        additionalLinkTags={[
+          {
+            rel: 'icon',
+            type: 'image/svg+xml',
+            href: '/error.svg',
+          },
+        ]}
+      />
 
       <Container>
         <LottieAnimation
@@ -66,4 +81,4 @@ const Custom400 = () => {
   );
 };
 
-export default Custom400;
+export default Custom404;

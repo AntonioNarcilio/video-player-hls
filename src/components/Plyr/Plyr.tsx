@@ -18,7 +18,10 @@ const PlyrPlayer = ({ url }:PlyrPlayerTypes) => {
         saveLink.href = data;
         saveLink.download = filename;
         const event = document.createEvent('MouseEvents');
-        event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        event.initMouseEvent(
+          'click', true, false, window, 0, 0, 0, 0, 0,
+          false, false, false, false, 0, null,
+        );
         saveLink.dispatchEvent(event);
       }
 
@@ -141,7 +144,8 @@ const PlyrPlayer = ({ url }:PlyrPlayerTypes) => {
     if (videoElement) {
       player = new Plyr(videoElement,
         {
-          // captions: { active: true, update: true },
+        // captions: { active: true, update: true },
+          tooltips: { controls: true },
           autoplay: false,
           hideControls: true,
           speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2] },
